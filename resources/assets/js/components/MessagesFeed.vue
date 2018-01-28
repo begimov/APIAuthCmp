@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <post-message />
                     <div class="panel-body">
+                        <post-message />
                         <div class="media" v-for="message in messages" :key="message.id">
                             <div class="media-left"></div>
                             <div class="media-body">

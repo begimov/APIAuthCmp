@@ -43106,15 +43106,13 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-        _c(
-          "div",
-          { staticClass: "panel panel-default" },
-          [
-            _c("post-message"),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "panel-body" },
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c(
+            "div",
+            { staticClass: "panel-body" },
+            [
+              _c("post-message"),
+              _vm._v(" "),
               _vm._l(_vm.messages, function(message) {
                 return _c("div", { key: message.id, staticClass: "media" }, [
                   _c("div", { staticClass: "media-left" }),
@@ -43128,10 +43126,10 @@ var render = function() {
                   ])
                 ])
               })
-            )
-          ],
-          1
-        )
+            ],
+            2
+          )
+        ])
       ])
     ])
   ])
@@ -43224,21 +43222,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            messages: []
+            message: ''
         };
     },
     mounted: function mounted() {
-        var _this = this;
-
-        axios.get('/messages').then(function (res) {
-            console.log(res.data);
-            _this.messages = res.data;
-        });
+        // axios.get('/messages').then((res) => {
+        //     console.log(res.data)
+        //     this.messages = res.data
+        // })
     }
 });
 
@@ -43250,22 +43245,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("input", { attrs: { type: "text" } })
-        ])
+  return _c(
+    "form",
+    {
+      attrs: { action: "#" },
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          _vm.send($event)
+        }
+      }
+    },
+    [
+      _c("div", { staticClass: "form-group" }, [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.message,
+              expression: "message"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { cols: "10", rows: "2" },
+          domProps: { value: _vm.message },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.message = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "submit" } },
+          [_vm._v("Send")]
+        )
       ])
-    ])
-  }
-]
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
