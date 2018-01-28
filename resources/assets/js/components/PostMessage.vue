@@ -17,9 +17,7 @@
         methods: {
             send() {
                 axios.post('/messages', {
-                    params: {
-                        message: this.message
-                    }
+                    message: this.message
                 }).then((res) => {
                     console.log(res.data)
                     this.messages = res.data

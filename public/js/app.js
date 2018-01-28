@@ -43235,9 +43235,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.post('/messages', {
-                params: {
-                    message: this.message
-                }
+                message: this.message
             }).then(function (res) {
                 console.log(res.data);
                 _this.messages = res.data;

@@ -11,4 +11,9 @@ class MessageController extends Controller
     {
         return auth()->user()->messages()->with(['user'])->get();
     }
+
+    public function store(Request $request)
+    {
+        var_dump($request->message);
+    }
 }
