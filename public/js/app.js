@@ -988,6 +988,7 @@ window.Vue = __webpack_require__(35);
  */
 
 Vue.component('messages-feed', __webpack_require__(38));
+Vue.component('post-message', __webpack_require__(53));
 
 var app = new Vue({
   el: '#app'
@@ -43077,7 +43078,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43106,27 +43106,32 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-        _c("div", { staticClass: "panel panel-default" }, [
-          _c(
-            "div",
-            { staticClass: "panel-body" },
-            _vm._l(_vm.messages, function(message) {
-              return _c("div", { key: message.id, staticClass: "media" }, [
-                _c("div", { staticClass: "media-left" }, [
-                  _vm._v(
-                    "\n                            //\n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "media-body" }, [
-                  _c("p", [_c("strong", [_vm._v(_vm._s(message.user.name))])]),
+        _c(
+          "div",
+          { staticClass: "panel panel-default" },
+          [
+            _c("post-message"),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "panel-body" },
+              _vm._l(_vm.messages, function(message) {
+                return _c("div", { key: message.id, staticClass: "media" }, [
+                  _c("div", { staticClass: "media-left" }),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(message.body))])
+                  _c("div", { staticClass: "media-body" }, [
+                    _c("p", [
+                      _c("strong", [_vm._v(_vm._s(message.user.name))])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(message.body))])
+                  ])
                 ])
-              ])
-            })
-          )
-        ])
+              })
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
@@ -43146,6 +43151,129 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(39)
+/* script */
+var __vue_script__ = __webpack_require__(54)
+/* template */
+var __vue_template__ = __webpack_require__(55)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/PostMessage.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c732f940", Component.options)
+  } else {
+    hotAPI.reload("data-v-c732f940", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            messages: []
+        };
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        axios.get('/messages').then(function (res) {
+            console.log(res.data);
+            _this.messages = res.data;
+        });
+    }
+});
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("input", { attrs: { type: "text" } })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c732f940", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

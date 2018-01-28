@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('messages-feed', require('./components/MessagesFeed.vue'));
+Vue.component('post-message', require('./components/PostMessage.vue'));
 
 const app = new Vue({
     el: '#app'
