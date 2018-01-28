@@ -3,10 +3,15 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
-
                     <div class="panel-body">
-                        I'm an example component!
+                        <div class="media" v-for="message in messages" :key="message.id">
+                            <div class="media-left">
+                                //
+                            </div>
+                            <div class="media-body">
+                                {{ message.body }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -16,8 +21,16 @@
 
 <script>
     export default {
+        data() {
+            return {
+                messages: []
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            axios.get('/messages').then((res) => {
+                console.log(res.data)
+                this.messages = res.data
+            })
         }
     }
 </script>
