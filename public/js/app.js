@@ -43229,11 +43229,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             message: ''
         };
     },
+
+    methods: {
+        send: function send() {
+            var _this = this;
+
+            axios.post('/messages', {
+                params: {
+                    message: this.message
+                }
+            }).then(function (res) {
+                console.log(res.data);
+                _this.messages = res.data;
+            });
+        }
+    },
     mounted: function mounted() {
-        // axios.get('/messages').then((res) => {
-        //     console.log(res.data)
-        //     this.messages = res.data
-        // })
+        //
     }
 });
 

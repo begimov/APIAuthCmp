@@ -14,11 +14,20 @@
                 message: ''
             }
         },
+        methods: {
+            send() {
+                axios.post('/messages', {
+                    params: {
+                        message: this.message
+                    }
+                }).then((res) => {
+                    console.log(res.data)
+                    this.messages = res.data
+                })
+            }
+        },
         mounted() {
-            // axios.get('/messages').then((res) => {
-            //     console.log(res.data)
-            //     this.messages = res.data
-            // })
+            //
         }
     }
 </script>
