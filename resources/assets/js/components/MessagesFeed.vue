@@ -9,7 +9,8 @@
                                 //
                             </div>
                             <div class="media-body">
-                                {{ message.body }}
+                                <p><strong>{{ message.user.name }}</strong></p>
+                                <p>{{ message.body }}</p>
                             </div>
                         </div>
                     </div>
