@@ -14,6 +14,13 @@ class MessageController extends Controller
 
     public function store(Request $request)
     {
-        var_dump($request->message);
+        $this->validate($request, [
+            'message' => 'required'
+        ]);
+        $msg = $request->user()->messages()->create([
+            'body' => $request->message
+        ])->load('user');
+
+        return $msg;
     }
 }
