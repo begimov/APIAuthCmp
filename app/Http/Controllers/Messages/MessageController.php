@@ -9,7 +9,7 @@ class MessageController extends Controller
 {
     public function index(Request $request)
     {
-        return auth()->user()->messages()->with(['user'])->get();
+        return auth()->user()->messages()->with(['user'])->latest()->get();
     }
 
     public function store(Request $request)
