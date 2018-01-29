@@ -43111,7 +43111,7 @@ var render = function() {
             "div",
             { staticClass: "panel-body" },
             [
-              _c("post-message"),
+              _c("post-message", { attrs: { messages: _vm.messages } }),
               _vm._v(" "),
               _vm._l(_vm.messages, function(message) {
                 return _c("div", { key: message.id, staticClass: "media" }, [
@@ -43224,6 +43224,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['messages'],
     data: function data() {
         return {
             message: ''
@@ -43238,7 +43239,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 message: this.message
             }).then(function (res) {
                 console.log(res.data);
-                _this.messages = res.data;
+                _this.messages.push(res.data);
             });
         }
     },

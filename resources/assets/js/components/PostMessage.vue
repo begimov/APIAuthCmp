@@ -9,6 +9,7 @@
 
 <script>
     export default {
+        props: ['messages'],
         data() {
             return {
                 message: ''
@@ -20,7 +21,7 @@
                     message: this.message
                 }).then((res) => {
                     console.log(res.data)
-                    this.messages = res.data
+                    this.messages.push(res.data)
                 })
             }
         },
