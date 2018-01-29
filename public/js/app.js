@@ -43239,7 +43239,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 message: this.message
             }).then(function (res) {
                 console.log(res.data);
-                _this.messages.push(res.data);
+                _this.messages.unshift(res.data);
+                _this.message = '';
             });
         }
     },

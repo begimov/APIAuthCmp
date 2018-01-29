@@ -21,7 +21,8 @@
                     message: this.message
                 }).then((res) => {
                     console.log(res.data)
-                    this.messages.push(res.data)
+                    this.messages.unshift(res.data)
+                    this.message = ''
                 })
             }
         },
