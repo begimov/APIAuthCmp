@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class DeveloperController extends Controller
 {
-    //
+    public function index()
+    {
+        //
+    }
 }

@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/developer', 'Developers\DeveloperController@index');
+
     Route::get('/messages', 'Messages\MessageController@index');
     Route::post('/messages', 'Messages\MessageController@store');
 });
