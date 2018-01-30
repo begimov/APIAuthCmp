@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/messages', [
-    'uses' => 'TweetController@index',
+    'uses' => 'Messages\MessageController@index',
+    'middleware' => ['auth:api']
+]);
+
+Route::post('/messages', [
+    'uses' => 'Messages\MessageController@store',
     'middleware' => ['auth:api']
 ]);
