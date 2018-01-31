@@ -32,5 +32,8 @@ class AuthServiceProvider extends ServiceProvider
             'view-messages' => 'View messages',
             'post-messages' => 'Post messages',
         ]);
+
+        Passport::tokensExpireIn(now()->addSeconds(20));
+        Passport::refreshTokensExpireIn(now()->addDays(30));
     }
 }
