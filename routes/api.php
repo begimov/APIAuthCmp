@@ -24,5 +24,5 @@ Route::get('/messages', [
 
 Route::post('/messages', [
     'uses' => 'Messages\MessageController@store',
-    'middleware' => ['auth:api']
+    'middleware' => ['auth:api', 'scope:post-messages']
 ]);
